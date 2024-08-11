@@ -1,0 +1,678 @@
+/* ================== global styles ============== */
+
+
+body {
+  background-color: #fff;
+  font-family: 'Montserrat', sans-serif !important;
+  padding: 0;
+  margin: 0;
+
+  width: clamp(900px, 100%, 1400px);
+}
+
+
+
+/* ================== nav menu ============== */
+
+/* header nav styles */
+.web-header nav {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  background-color: #298091;
+  color: #fff;
+  padding-left: 20px;
+}
+
+.web-header nav div{
+    display: flex;
+    align-items: center;
+}
+
+.web-header nav img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+/* ================== main section style ============== */
+
+.dashboard {
+  display: flex;
+   
+}
+
+/* Style the tab */
+.tab {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  /* background-color:  #eca85d; */
+  background-color:  #fff;
+  height: 100vh;
+  padding-top: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  align-items: center;
+  gap: 10px;
+  border: 1px solid#dcdcdc;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: inherit;
+  color: #292929;
+  width: 80%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Montserrat', sans-serif !important;
+  height: 35px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hide text on screens below 700px and show only the icon */
+.tab button h4 {
+  margin: 0;
+  display: none; /* Hide text by default (for small screens) */
+}
+
+/* Show text and icon on screens 700px and up */
+@media (min-width: 900px) {
+  .tab button h4 {
+    display: inline; /* Show text on larger screens */
+  }
+}
+
+.tablinks {
+  position: relative; /* For ripple effect positioning */
+  overflow: hidden; /* Hide ripple outside button */
+}
+
+.tablinks span {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  background-color: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+
+i {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover { 
+  background-color: #f0fbff;
+}
+
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  color: #fff;
+  background-color: #298091;
+}
+
+/* Style the tab content */ 
+.tabcontent {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  font-family: 'Montserrat', sans-serif !important;
+  align-items: end;
+  padding-bottom: 50px;
+  padding-top: 20px;
+}
+
+header {
+  margin-bottom: 10px;
+}
+
+.profile {
+  display: flex;
+}
+
+
+.profile img {
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+
+/* ================== graph tab chart styles ============== */
+.simple-bar-chart{
+  --line-opacity: 0.25;
+  --item-gap: 2%;
+  --item-default-color: #060606;
+  
+  height: 10rem;
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--item-gap);
+  align-items: end;
+  padding-inline: var(--item-gap);
+  --padding-block: 1.5rem; /*space for labels*/
+  padding-block: var(--padding-block);
+  position: relative;
+  isolation: isolate;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* bar chart styles */
+.simple-bar-chart::after{
+  content: "";
+  position: absolute;
+  inset: var(--padding-block) 0;
+  z-index: -1;
+  --line-width: 1px;
+  --line-spacing: calc(100% / var(--line-count));
+  background-image: repeating-linear-gradient(to top, transparent 0 calc(var(--line-spacing) - var(--line-width)), var(--line-color) 0 var(--line-spacing));
+  box-shadow: 0 var(--line-width) 0 var(--line-color);
+  opacity: var(--line-opacity);
+}
+.simple-bar-chart > .item{
+  height: calc(1% * var(--val));
+  background-color: var(--clr, var(--item-default-color));
+  position: relative;
+  animation: item-height 1s ease forwards
+}
+@keyframes item-height { from { height: 0 } }
+
+.simple-bar-chart > .item > * { position: absolute; text-align: center }
+.simple-bar-chart > .item > .label { inset: 100% 0 auto 0 }
+.simple-bar-chart > .item > .value { inset: auto 0 100% 0 }
+
+
+ /* ================== graph tab cards styles ============== */
+
+.cardBox {
+  position: relative;
+  width: 100%;;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex-wrap: wrap;
+
+}
+
+.cardBox .card {
+  position: relative;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  width: 150px;
+  color: #298091;
+  border: 1px solid #dcdcdc;
+}
+
+.cardBox .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--blue);
+}
+
+.cardBox .card .cardName {
+  color: var(--black2);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.cardBox .card .iconBx i{
+  font-size: 3.5rem;
+}
+
+.cardBox .card:hover {
+  background: #298091;
+}
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+  color: #fff;
+}
+
+.line-chart {
+  width: 60%;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #dcdcdc;
+}
+
+.pie-chart {
+  padding: 10px;
+  align-items: center;
+}
+
+.graphs-pie-chart {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  border: 1px solid #dcdcdc;
+  align-items: center;
+  color: #298091;
+}
+
+.my-charts {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+
+
+.progress {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.bar {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #dcdcdc;
+}
+
+#polar-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #dcdcdc;
+}
+
+/* ================== graph infinite card styles ============== */
+
+/* cards */
+.moving-cards {
+  overflow: hidden; /* Hide overflowing content */
+  width: 95%;
+  position: relative;
+  margin-top: 20px;
+  height: 200px;
+
+  margin-left: 30px;
+}
+
+.card-inner {
+  display: flex;
+  width: calc(200px * 10); /* Adjust based on the total width of duplicated cards */
+  animation: scroll 20s linear infinite;
+  height: 200px;
+  font-family: 'Montserrat', sans-serif !important;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 200px; /* Width of each card */
+  margin: 0 10px; /* Space between cards */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+
+
+}
+
+.card img {
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* Scroll by half the width to cover the full width of the container */
+  }
+}
+
+/* ================== Users tab styles ============== */
+
+/*  Order Details List  */
+.details {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.details .recentOrders {
+  position: relative;
+  /* display: grid; */
+  min-height: 500px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  border: 1px solid #dcdcdc;
+}
+
+.details .cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.cardHeader h2 {
+  font-weight: 600;
+  color: var(--blue);
+}
+.cardHeader .btn {
+  position: relative;
+  padding: 5px 10px;
+  background: #298091;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 6px;
+}
+
+.details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.details table thead td {
+  font-weight: 600;
+}
+.details .recentOrders table tr {
+  color: #060606;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.details .recentOrders table tr:last-child {
+  border-bottom: none;
+}
+.details .recentOrders table tbody tr:hover {
+  background: #298091;
+  color: #fff;
+}
+.details .recentOrders table tr td {
+  padding: 10px;
+}
+.details .recentOrders table tr td:last-child {
+  text-align: end;
+}
+.details .recentOrders table tr td:nth-child(2) {
+  text-align: end;
+}
+.details .recentOrders table tr td:nth-child(3) {
+  text-align: center;
+}
+.status.delivered {
+  padding: 2px 4px;
+  background: #18CF6A;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.status.pending {
+  padding: 2px 4px;
+  background: #e9b10a;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.status.return {
+  padding: 2px 4px;
+  background: #E5472C;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.status.inProgress {
+  padding: 2px 4px;
+  background: #1795ce;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+/* User chart styles */
+
+.user-charts{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  margin-top: 20px;
+  margin-left: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+
+#user-line-chart {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  border: 1px solid #dcdcdc;
+  padding: 20px;
+}
+
+#user-pie-chart {
+  display: flex;
+  justify-content: center;
+}
+
+.interactive-chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  border: 1px solid #dcdcdc;
+  padding: 10px;  
+}
+
+.interactive-chart button {
+  position: relative;
+  padding: 5px 10px;
+  background: #298091;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 6px;
+  
+}
+
+
+/* ================== Sales tab styles ============== */
+
+.sales-analytics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sales-area-chart {
+  display:flex;
+  flex-direction: column;
+  width: 600px;
+  box-shadow: 0 7px 25px rgba(197, 53, 53, 0.08);
+  border-radius: 20px;
+  border: 1px solid #dcdcdc;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search input { 
+  height: 30px;
+  margin-left: 30px;
+  border: none;
+  background-color: #d8f3f5;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.user-info h3, h6 {
+  margin: 0;
+}
+
+#barChartUser{
+  width: 50%;  
+  height: 100px;
+}
+
+.sales-area-chart-bar-stat{
+  display: flex;
+}
+
+.sales-area-chart-stat {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.sales-area-chart-stat div {
+  align-items: center;
+}
+.sales-area-chart-stat div i,h3,h5 {
+  margin: 0;
+}
+
+.sales-area-chart-stat h6 {
+  width: 80px;
+  word-wrap: break-word;
+}
+
+#sales-area-chart-bar {
+  width: 300px;
+}
+
+#radarChart {
+  display: flex;
+  width: auto;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  border: 1px solid #dcdcdc;
+  padding: 10px;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+#heatMap {
+  width: auto;
+  margin: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  border: 1px solid #dcdcdc;
+  display: flex;
+  align-items: center;
+}
+
+.radar-heat-chart {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1200px) {
+  .radar-heat-chart {
+    flex-direction: row;
+  }
+}
+
+/* Product sectiob styles */
+.product-section {
+  text-align: center;
+  margin: 50px 50px;
+}
+
+.productHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* icon animation */
+
+#icon:hover {
+  cursor: pointer;
+}
+
+@keyframes rotateAndTransform {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.rotate-transform {
+  animation: rotateAndTransform 0.5s forwards;
+}
+
+.transform-icon {
+  content: "\f056"; /* Unicode for fa-circle-minus */
+}
+

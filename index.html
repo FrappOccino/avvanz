@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Specify the character encoding for the document -->
+    <meta charset="UTF-8">
+    
+    <!-- Ensure proper rendering and touch zooming on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Set the title of the document, which appears in the browser tab -->
+    <title>Document</title>
+    
+    <!-- Link to the external stylesheet for styling the document -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Link to Google Fonts for custom font 'Montserrat' with specified weights -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Load Font Awesome for icon usage with appropriate cross-origin settings -->
+    <script src="https://kit.fontawesome.com/ca8968a601.js" crossorigin="anonymous"></script>
+    
+    <!-- Include ApexCharts library for creating charts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+    <!-- Include the ApexCharts core library, needed for chart functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/@apexcharts/apexcharts"></script>
+</head>
+
+<body>
+    <div class="web-header">
+      <!-- Navigation bar container -->
+      <nav>
+          <!-- Logo section with company branding -->
+          <div class="logo">
+              <!-- Company logo image -->
+              <img src="./assets/Avvanz_comp_icon.svg" alt="Company Logo">
+              <!-- Main heading for the dashboard -->
+              <h1>Dash Board</h1>
+          </div>
+          
+          <!-- Profile section containing user notifications and profile image -->
+          <div class="profile">
+              <!-- Notification icon (Font Awesome) -->
+              <i class="fa-regular fa-bell" style="font-size: 25px;" aria-label="Notifications"></i>
+              <!-- User profile image -->
+              <img src="./assets/cs_profile.svg" alt="User Profile">
+          </div>
+      </nav>
+    </div>
+    <!-- Main Dash section -->
+    <div class="dashboard">
+        <!-- vertical tab buttons -->
+        <div class="tab">
+
+          <!-- Tab button for the 'Graph' section, opens the corresponding content -->
+          <button class="tablinks" onclick="openContent(event, 'dash')" id="defaultOpen">
+            <i class="fa-solid fa-chart-line"></i>
+            <h4>Graph</h4>
+          </button>
+
+          <!-- Tab button for the 'Users' section, opens the corresponding content -->
+          <button class="tablinks" onclick="openContent(event, 'user')">
+            <i class="fa-solid fa-users"></i>
+            <h4>Users</h4>
+          </button>
+
+          <!-- Tab button for the 'Sales' section, opens the corresponding content -->
+          <button class="tablinks" onclick="openContent(event, 'sales')">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h4>Sales</h4>
+          </button>
+          <!-- Tab inactive buttons -->
+          <button class="tablinks"><i class="fa-solid fa-share-nodes"></i><h4>Lorem</h4></button>
+
+          <button class="tablinks"><i class="fa-solid fa-envelope"></i><h4>Ipsum</h4></button>
+
+          <button class="tablinks"><i class="fa-solid fa-globe"></i></i><h4>Dolor</h4></button>
+
+          <button class="tablinks"><i class="fa-solid fa-truck-fast"></i><h4>SitAmet</h4></button>
+
+          <button class="tablinks"><i class="fa-solid fa-calendar-days"></i><h4>Integer</h4></button>
+          <!-- Tab inactive buttons -->
+        </div>
+          
+        <!-- Grap tab contents to be dispaly-->
+        <div id="dash" class="tabcontent">
+            <!-- cards -->
+            <div class="cardBox">
+                <div class="card">
+                  <div>
+                    <div class="numbers">1,504</div>
+                    <div class="cardName">Daily Views</div>
+                  </div>
+                  <div class="iconBx">
+                    <i class="fa-regular fa-eye" style="font-size: 50px;"></i>
+                  </div>
+                </div>
+                <div class="card">
+                  <div>
+                    <div class="numbers">80</div>
+                    <div class="cardName">Sales</div>
+                  </div>
+                  <div class="iconBx">
+                    <i class="fa-solid fa-basket-shopping" style="font-size: 3.5rem;"></i>
+                  </div>
+                </div>
+                <div class="card">
+                  <div>
+                    <div class="numbers">284</div>
+                    <div class="cardName">Comments</div>
+                  </div>
+                  <div class="iconBx">
+                    <i class="fa-regular fa-comments" style="font-size: 50px;"></i>
+                  </div>
+                </div>
+                <div class="card">
+                  <div>
+                    <div class="numbers">$7,842</div>
+                    <div class="cardName">Earning</div>
+                  </div>
+                </div>
+              </div>
+              <div class="my-charts">
+                <!-- smooth chart -->
+                <div id="smooth" class="line-chart"></div>
+                <!-- pie chart -->
+                <div class="graphs-pie-chart">
+                  <div id="pie" class="pie-chart"></div>    
+                  <div><h3>Sales Progress Analysis</h3></div>
+                </div>
+              </div>
+
+              <div class="moving-cards">
+                <div class="card-inner" id="cardContainer">
+                  <!-- Cards will be generated dynamically here -->
+                </div>
+
+                <!-- Link to external JavaScript file for infinite cardss -->
+                <script src="infiniteCards.js"></script>
+              </div>
+              
+              <div class="progress">
+                <div id="polar-area"></div>
+                <div id="bar-chart" class="bar"></div>
+              </div>
+        </div>
+
+        <!-- User tab contents to be display -->
+        <div id="user" class="tabcontent">
+          <!--User table status -->
+          <div class="details">
+            <div class="recentOrders">
+              <div class="cardHeader">
+                <h2>Recent Orders</h2>
+                <a href="#" class="btn">View All</a>
+              </div>
+  
+              <table>
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Price</td>
+                    <td>Payment</td>
+                    <td>Status</td>
+                  </tr>
+                </thead>
+  
+                <tbody>
+                  <tr>
+                    <td>Star Refrigerator</td>
+                    <td>$1200</td>
+                    <td>Paid</td>
+                    <td><span class="status delivered">Delivered</span></td>
+                  </tr>
+  
+                  <tr>
+                    <td>Dell Laptop</td>
+                    <td>$110</td>
+                    <td>Due</td>
+                    <td><span class="status pending">Pending</span></td>
+                  </tr>
+  
+                  <tr>
+                    <td>Apple Watch</td>
+                    <td>$1200</td>
+                    <td>Paid</td>
+                    <td><span class="status return">Return</span></td>
+                  </tr>
+  
+                  <tr>
+                    <td>Addidas Shoes</td>
+                    <td>$620</td>
+                    <td>Due</td>
+                    <td><span class="status inProgress">In Progress</span></td>
+                  </tr>
+  
+                  <tr>
+                    <td>Star Refrigerator</td>
+                    <td>$1200</td>
+                    <td>Paid</td>
+                    <td><span class="status delivered">Delivered</span></td>
+                  </tr>
+  
+                  <tr>
+                    <td>Dell Laptop</td>
+                    <td>$110</td>
+                    <td>Due</td>
+                    <td><span class="status pending">Pending</span></td>
+                  </tr>
+  
+                  <tr>
+                    <td>Apple Watch</td>
+                    <td>$1200</td>
+                    <td>Paid</td>
+                    <td><span class="status return">Return</span></td>
+                  </tr>
+  
+                  <tr>
+                    <td>Addidas Shoes</td>
+                    <td>$620</td>
+                    <td>Due</td>
+                    <td><span class="status inProgress">In Progress</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="user-charts">
+            <!-- User section line chart -->
+            <div id="user-line-chart"></div>
+            <div class="interactive-chart">
+              <div id="user-pie-chart"></div>
+              <div>
+                <button id="add">Add Data</button>
+                <button id="remove">Remove Data</button>
+                <button id="randomize">Randomize</button>
+                <button id="reset">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sales tab contents to be display -->
+        <div id="sales" class="tabcontent">
+          <div class="sales-analytics">
+            
+            <div class='sales-area-chart'>
+              <div class="chart-header">
+                <div class="search">
+                  <i class="fa-solid fa-ellipsis-vertical" style="font-size: 25px; color: #525252;"></i>
+                  <search>
+                    <form>
+                      <input name="fsrch" id="fsrch" placeholder="Search user">
+                    </form>
+                  </search>
+                  <i class="fa-solid fa-square-plus" style="font-size: 30px; color: #298091;"></i>
+                </div>
+                <div class="user-info">
+                  <h3>USER NAME</h3>
+                  <h6>Lorem ipsum dolor sit amet, consectetur adipiscing</h6>
+                </div>
+              </div>
+              <!--custom area chart -->
+              <div id="customChart"></div>
+              <div class="sales-area-chart-bar-stat">
+                <div id="barChartUser" class="sales-area-chart-bar"></div>
+                <div class="sales-area-chart-stat">
+                  <div>
+                    <i class="fa-solid fa-desktop" style="color:#eca85d;"></i>
+                    <h4>7,578</h4>
+                    <h6>Lorem ipsum dolor sit amet</h6>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-mobile-screen-button" style="color:#eca85d;"></i>
+                    <h4>578</h4>
+                    <h6>Lorem ipsum dolor sit amet</h6>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-laptop" style="color:#eca85d;"></i>
+                    <h4>467</h4>
+                    <h6>lorem</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="radar-heat-chart">
+              <!-- radar chart -->
+              <div id="radarChart"></div>
+              <!-- heat map -->
+              <div id="heatMap">heat MAP</div>
+            </div>
+          </div>  
+          <div class="product-section">
+            <h1>Products Section</h1>
+          </div>
+          <div class="details">
+            <div class="recentOrders">
+              <div class="productHeader">
+                <i class="fa-solid fa-circle-plus" id="icon" style="color: #298091; font-size: 30px"></i>
+                <h3>Add new product</h3>
+              </div>
+              <div id="newProductInfo" style="display: none;">
+                <!-- Your content goes here -->
+                <p>This is the content to be toggled.</p>
+              </div>  
+              <table>
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Price</td>
+                    <td>Stock</td>
+                    <td>Option</td>
+                  </tr>
+                </thead>
+  
+                <tbody>
+                  <tr>
+                    <td>Star Refrigerator</td>
+                    <td>$1200</td>
+                    <td>254</td>
+                    <td>
+                      <i class="fa-solid fa-pen-to-square" style="color: #989898;"></i>
+                      <i class="fa-solid fa-trash" style="color: #F6583D;"></i>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>Dell Laptop</td>
+                    <td>$110</td>
+                    <td>365</td>
+                    <td>
+                      <i class="fa-solid fa-pen-to-square" style="color: #989898;"></i>
+                      <i class="fa-solid fa-trash" style="color: #F6583D;"></i>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>Apple Watch</td>
+                    <td>$1200</td>
+                    <td>164</td>
+                    <td>
+                      <i class="fa-solid fa-pen-to-square" style="color: #989898;"></i>
+                      <i class="fa-solid fa-trash" style="color: #F6583D;"></i>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>Addidas Shoes</td>
+                    <td>$620</td>
+                    <td>222</td>
+                    <td>
+                      <i class="fa-solid fa-pen-to-square" style="color: #989898;"></i>
+                      <i class="fa-solid fa-trash" style="color: #F6583D;"></i>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>Star Refrigerator</td>
+                    <td>$1200</td>
+                    <td>46</td>
+                    <td>
+                      <i class="fa-solid fa-pen-to-square" style="color: #989898;"></i>
+                      <i class="fa-solid fa-trash" style="color: #F6583D;"></i>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>Dell Laptop</td>
+                    <td>$110</td>
+                    <td>23</td>
+                    <td>
+                      <i class="fa-solid fa-pen-to-square" style="color: #989898;"></i>
+                      <i class="fa-solid fa-trash" style="color: #F6583D;"></i>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>Apple Watch</td>
+                    <td>$1200</td>
+                    <td>111</td>
+                    <td>
+                      <i class="fa-solid fa-pen-to-square" style="color: #989898;"></i>
+                      <i class="fa-solid fa-trash" style="color: #F6583D;"></i>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>Addidas Shoes</td>
+                    <td>$620</td>
+                    <td>33</td>
+                    <td>
+                      <i class="fa-solid fa-pen-to-square" style="color: #989898;"></i>
+                      <i class="fa-solid fa-trash" style="color: #F6583D;"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Star Refrigerator</td>
+                    <td>$1200</td>
+                    <td>12</td>
+                    <td>
+                      <i class="fa-solid fa-pen-to-square" style="color: #989898;"></i>
+                      <i class="fa-solid fa-trash" style="color: #F6583D;"></i>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>Dell Laptop</td>
+                    <td>$110</td>
+                    <td>4127</td>
+                    <td><i class="fa-solid fa-pen-to-square" style="color: #989898;"></i>
+                      <i class="fa-solid fa-trash" style="color: #F6583D;"></i>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>Apple Watch</td>
+                    <td>$1200</td>
+                    <td>332</td>
+                    <td>
+                      <i class="fa-solid fa-pen-to-square" style="color: #989898;"></i>
+                      <i class="fa-solid fa-trash" style="color: #F6583D;"></i>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td>Addidas Shoes</td>
+                    <td>$620</td>
+                    <td>466</td>
+                    <td>
+                      <i class="fa-solid fa-pen-to-square" style="color: #989898;"></i>
+                      <i class="fa-solid fa-trash" style="color: #F6583D;"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+
+        </div>
+        <!-- Script for tab button switching  tab contents -->
+        <script>
+          function openContent(evt, contentName) {
+              var i, tabcontent, tablinks;
+              tabcontent = document.getElementsByClassName("tabcontent");
+              for (i = 0; i < tabcontent.length; i++) {
+                  tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("tablinks");
+              for (i = 0; i < tablinks.length; i++) {
+                  tablinks[i].className = tablinks[i].className.replace(" active", "");
+              }
+              document.getElementById(contentName).style.display = "block";
+              evt.currentTarget.className += " active";
+          }
+
+          // Get the element with id="defaultOpen" and click on it
+          document.getElementById("defaultOpen").click();
+      </script>
+    </div>
+
+  <!-- Link to external general JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
+
